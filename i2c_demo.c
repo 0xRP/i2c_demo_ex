@@ -7,7 +7,7 @@
 #include "i2c_demo.h"
 
 /*===========================================================
-  Ejercicio 1: Funciones de Inicio y Parada del I2C
+  Tarea 1: Funciones de Inicio y Parada del I2C
   -----------------------------------------------------------
   Funciones inline para generar las condiciones de inicio y 
   parada en el bus I2C.
@@ -21,7 +21,7 @@ static inline void i2c_stop(void) {
 }
 
 /*===========================================================
-  Ejercicio 2: Impresión de un Byte en Formato Hexadecimal
+  Tarea 2: Impresión de un Byte en Formato Hexadecimal
   -----------------------------------------------------------
   Función para imprimir un byte en formato hexadecimal usando la UART.
 =============================================================*/
@@ -35,7 +35,7 @@ void print_hex_byte(uint8_t data) {
 }
 
 /*===========================================================
-  Ejercicio 3: Función para Escribir un Byte en I2C
+  Tarea 3: Función para Escribir un Byte en I2C
   -----------------------------------------------------------
   Se envía un byte por I2C y se verifica el acuse de recibo (ACK/NACK)
   mostrando mensajes de depuración.
@@ -51,7 +51,7 @@ static inline uint32_t i2c_write_byte(uint8_t byte) {
 }
 
 /*===========================================================
-  Ejercicio 4: Función para Leer un Byte en I2C
+  Tarea 4: Función para Leer un Byte en I2C
   -----------------------------------------------------------
   Se lee un byte del bus I2C, utilizando un parámetro para configurar el
   acuse de recibo (ACK/NACK).
@@ -65,7 +65,7 @@ static inline uint8_t i2c_read_byte(int ack) {
 }
 
 /*===========================================================
-  Ejercicio 5: Escritura de Múltiples Bytes en I2C
+  Tarea 5: Escritura de Múltiples Bytes en I2C
   -----------------------------------------------------------
   Función que envía múltiples bytes, empezando 
   por la dirección del dispositivo, luego los datos.
@@ -83,7 +83,7 @@ static uint32_t i2c_write(uint8_t dev_addr, const uint8_t *data, uint8_t len) {
 }
 
 /*===========================================================
-  Ejercicio 6: Lectura de Múltiples Bytes en I2C
+  Tarea 6: Lectura de Múltiples Bytes en I2C
   -----------------------------------------------------------
   Función para leer múltiples bytes desde un 
   dispositivo I2C, enviando ACK para todos excepto el último.
@@ -101,7 +101,7 @@ static uint32_t i2c_read(uint8_t dev_addr, uint8_t *data, uint8_t len) {
 }
 
 /*===========================================================
-  Ejercicio 7: Inicialización del Sensor AHT20
+  Tarea 7: Inicialización del Sensor AHT20
   -----------------------------------------------------------
   Se inicializa el sensor AHT20 enviando el comando de 
   inicialización y comprobando el estado de calibración.
@@ -123,7 +123,7 @@ uint32_t aht20_begin(void) {
 }
 
 /*===========================================================
-  Ejercicio 8: Disparar una Medición
+  Tarea 8: Disparar una Medición
   -----------------------------------------------------------
   Se implementa la función que dispara una medición, 
   espera la medición y lee 6 bytes de datos.
@@ -142,7 +142,7 @@ uint32_t aht20_measure(uint8_t *data, uint8_t len) {
 }
 
 /*===========================================================
-  Ejercicio 9: Interpretación de los Datos de Humedad
+  Tarea 9: Interpretación de los Datos de Humedad
   -----------------------------------------------------------
   Se extrae y convierte el valor en bruto de 20 bits de 
   humedad a porcentaje. [SS] [HH] [HH] [HT] [TT] [TT]
@@ -154,7 +154,7 @@ uint32_t aht20_getHumidity(const uint8_t *data) {
 }
 
 /*===========================================================
-  Ejercicio 10: Interpretación de los Datos de Temperatura
+  Tarea 10: Interpretación de los Datos de Temperatura
   -----------------------------------------------------------
   Se extrae y convierte el valor en bruto de 20 bits de 
   temperatura a grados Celsius, incluyendo mensajes de 

@@ -1,7 +1,7 @@
 #include "i2c_demo.h"
 
 /*===========================================================
-  Ejercicio 11: Programa Principal
+  Tarea 11: Programa Principal
   -----------------------------------------------------------
   Se integran todas las funciones: se configura la UART y
   el I2C, se inicializa el sensor AHT20 y se entra en un 
@@ -24,10 +24,20 @@ int main(void) {
   neorv32_uart0_printf("AHT20 example\n");
 
   // Verificar que el controlador TWI (I2C) esté disponible.
+  if (neorv32_twi_available() == 0) {
+    neorv32_uart0_printf("ERROR! TWI controller not available!\n");
+    return 1;
+  }
 
   // Configurar TWI con prescaler, divisor y sin stretching de reloj.
+  neorv32_twi_setup(CLK_PRSC_2048, 15, 0);
 
   // Inicializar el sensor AHT20.
+  if (!aht20_begin()) {
+    neorv32_uart0_printf("AHT20 not detected. Please check wiring. Freezing.\n");
+    while (1)
+      ;
+  }
 
   // Bucle principal: leer e imprimir datos cada 2 segundos.
   for (;;) {
