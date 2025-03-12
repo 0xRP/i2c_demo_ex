@@ -51,7 +51,7 @@ static inline uint32_t i2c_write_byte(uint8_t byte) {
 }
 
 /*===========================================================
-  Tarea 4: Función para Leer un Byte en I2C
+  Tarea 5: Función para Leer un Byte en I2C
   -----------------------------------------------------------
   Se lee un byte del bus I2C, utilizando un parámetro para configurar el
   acuse de recibo (ACK/NACK).
@@ -65,7 +65,7 @@ static inline uint8_t i2c_read_byte(int ack) {
 }
 
 /*===========================================================
-  Tarea 5: Escritura de Múltiples Bytes en I2C
+  Tarea 4: Escritura de Múltiples Bytes en I2C
   -----------------------------------------------------------
   Función que envía múltiples bytes, empezando 
   por la dirección del dispositivo, luego los datos.
